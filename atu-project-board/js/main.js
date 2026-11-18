@@ -20,58 +20,43 @@ if (toggle) {
   });
 }
 
-// ---------- Form helpers ----------
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// ---------- Contact form ----------
+const form = document.getElementById('contact-form');
 
-function clearErrors(form) {
+function clearErrors() {
   form.querySelectorAll('.field-error').forEach((el) => { el.textContent = ''; });
   form.querySelectorAll('.invalid').forEach((el) => el.classList.remove('invalid'));
 }
 
-function showErrors(form, errors) {
+function showErrors(errors) {
   for (const [field, message] of Object.entries(errors)) {
     form.querySelector(`[data-error-for="${field}"]`).textContent = message;
     form.querySelector(`[name="${field}"]`).classList.add('invalid');
   }
 }
 
-function setStatus(form, message, type) {
+function setStatus(message, type) {
   const status = form.querySelector('.form-status');
   status.textContent = message;
   status.className = `form-status ${type}`;
 }
 
-// ---------- Contact form: name, email, message ----------
-function validateContact({ name, email, message }) {
-  const errors = {};
-  if (!name.trim()) errors.name = 'Name is required';
-  if (!email.trim()) errors.email = 'Email is required';
-  else if (!EMAIL_PATTERN.test(email.trim())) errors.email = 'Enter a valid email address';
-  if (!message.trim()) errors.message = 'Message is required';
-  else if (message.trim().length < 10) errors.message = 'Message must be at least 10 characters';
-  return errors;
-}
-
-function handleForm(formId, validate, successMessage) {
-  const form = document.getElementById(formId);
-  if (!form) return;
-
+if (form) {
   form.addEventListener('submit', (event) => {
     event.preventDefault(); // stay on the page
-    clearErrors(form);
+    clearErrors();
 
     const data = Object.fromEntries(new FormData(form));
-    const errors = validate(data);
+    // Rules live in js/validation.js so the automated tests can check them too
+    const errors = window.ATUValidation.validateContact(data);
+
     if (Object.keys(errors).length > 0) {
-      showErrors(form, errors);
-      setStatus(form, 'Please fix the highlighted fields.', 'error');
+      showErrors(errors);
+      setStatus('Please fix the highlighted fields.', 'error');
       return;
     }
 
-    setStatus(form, successMessage(data), 'success');
+    setStatus(`Thanks ${data.name.trim()}, your message has been received.`, 'success');
     form.reset();
   });
 }
-
-handleForm('contact-form', validateContact,
-  (data) => `Thanks ${data.name.trim()}, your message has been received.`);

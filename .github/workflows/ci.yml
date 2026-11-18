@@ -1,0 +1,72 @@
+# Step 2 – Automated build & test with GitHub Actions
+# Runs on every push to any branch, on pull requests to main/develop,
+# and when started by hand from the Actions tab.
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: [main, develop]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-test:
+    name: Build and test
+    runs-on: ubuntu-latest
+
+    # The app lives in a subfolder, so every "run:" step starts there.
+    defaults:
+      run:
+        working-directory: atu-project-board
+
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+
+      - name: Show tool versions
+        run: |
+          node --version
+          npm --version
+
+      # "Build": this project has no npm dependencies, so the build step
+      # checks that every JavaScript file is valid (syntax check).
+      - name: Build (syntax check all JavaScript)
+        run: |
+          for file in js/*.js scripts/*.js; do
+            node --check "$file"
+            echo "OK $file"
+          done
+
+      - name: Unit tests
+        run: npm run test:unit
+
+      - name: Integration tests
+        run: npm run test:integration
+
+      - name: Coverage report (fails if line coverage is below 80%)
+        run: npm run test:coverage | tee coverage.txt
+
+      - name: Add results to the run summary
+        if: always()
+        run: |
+          echo "## Test results" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          grep -E "ℹ (tests|pass|fail)|file  |all files|\.js " coverage.txt >> "$GITHUB_STEP_SUMMARY" || true
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          # "uses:" steps ignore working-directory, so give the full path.
+          path: atu-project-board/test-results.xml
