@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | ATU Project Board</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="about.html">
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="index.html">ATU <span>Project Board</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" data-page="index.html">Home</a></li>
+        <li><a href="about.html" data-page="about.html">About</a></li>
+        <li><a href="project.html" data-page="project.html">Project Details</a></li>
+        <li><a href="contact.html" data-page="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="page-title">
+      <h1>About</h1>
+      <p class="lead">Who built this project and why.</p>
+    </section>
+
+    <section class="grid two">
+      <article class="card">
+        <h2>The student</h2>
+        <dl class="details">
+          <dt>Name</dt><dd>[Your Name]</dd>
+          <dt>Student ID</dt><dd>[Your Student ID]</dd>
+          <dt>Programme</dt><dd>[Your Programme]</dd>
+          <dt>Module</dt><dd>[Module Name]</dd>
+          <dt>Lecturer</dt><dd>[Lecturer Name]</dd>
+        </dl>
+      </article>
+      <article class="card">
+        <h2>Why this project?</h2>
+        <p>Modern software teams use CI/CD pipelines to deliver features quickly and safely.
+          This website is deliberately simple so the focus stays on the pipeline that
+          builds, tests, scans, packages, deploys and monitors it automatically.</p>
+        <p>Every change pushed to GitHub goes through the same automated steps, so the
+          result is repeatable and every step leaves evidence.</p>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>What I learned</h2>
+      <ul class="checklist">
+        <li>Using Git branches, pull requests and releases</li>
+        <li>Writing automated unit and integration tests</li>
+        <li>Finding vulnerabilities with security scanners</li>
+        <li>Packaging an app with Docker and running it on Kubernetes</li>
+        <li>Describing infrastructure as code with Terraform</li>
+        <li>Monitoring an app with Prometheus and Grafana</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>ATU Project Board &middot; CI/CD Pipeline Assignment (Task 3)</p>
+      <p class="small">Student project. Not an official ATU website.</p>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
