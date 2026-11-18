@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | ATU Project Board</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="index.html">
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="index.html">ATU <span>Project Board</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" data-page="index.html">Home</a></li>
+        <li><a href="about.html" data-page="about.html">About</a></li>
+        <li><a href="project.html" data-page="project.html">Project Details</a></li>
+        <li><a href="contact.html" data-page="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>ATU Project Board</h1>
+      <p class="lead">Track the progress of my CI/CD pipeline project, from source code to monitoring.</p>
+      <div class="actions">
+        <a class="button" href="project.html">View project details</a>
+        <a class="button secondary" href="contact.html">Get in touch</a>
+      </div>
+    </section>
+
+    <section aria-labelledby="board-title">
+      <h2 id="board-title">Project board</h2>
+      <div class="board">
+        <div class="column">
+          <h3>To do <span class="count">4</span></h3>
+          <article class="task"><h4>Security scanning</h4><p>Scan code and dependencies for vulnerabilities.</p><span class="tag">Security</span></article>
+          <article class="task"><h4>Docker image</h4><p>Package the website in a container.</p><span class="tag">Container</span></article>
+          <article class="task"><h4>Deployment</h4><p>Deploy the container automatically.</p><span class="tag">Deploy</span></article>
+          <article class="task"><h4>Monitoring</h4><p>Collect metrics and set up alerts.</p><span class="tag">Monitoring</span></article>
+        </div>
+        <div class="column">
+          <h3>In progress <span class="count">1</span></h3>
+          <article class="task"><h4>Automated build &amp; test</h4><p>Run checks automatically on every push.</p><span class="tag">CI</span></article>
+        </div>
+        <div class="column">
+          <h3>Done <span class="count">2</span></h3>
+          <article class="task"><h4>GitHub repository</h4><p>Repository with main and develop branches.</p><span class="tag">Git</span></article>
+          <article class="task"><h4>Website pages</h4><p>Home, About, Project Details, Contact.</p><span class="tag">Website</span></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>ATU Project Board &middot; CI/CD Pipeline Assignment (Task 3)</p>
+      <p class="small">Student project. Not an official ATU website.</p>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

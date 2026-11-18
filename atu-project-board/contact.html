@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | ATU Project Board</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="contact.html">
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="index.html">ATU <span>Project Board</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" data-page="index.html">Home</a></li>
+        <li><a href="about.html" data-page="about.html">About</a></li>
+        <li><a href="project.html" data-page="project.html">Project Details</a></li>
+        <li><a href="contact.html" data-page="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="page-title">
+      <h1>Contact</h1>
+      <p class="lead">Questions about the project? Send a message.</p>
+    </section>
+
+    <section class="card form-card">
+      <form id="contact-form" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" maxlength="80" autocomplete="name" required>
+          <p class="field-error" data-error-for="name"></p>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+          <p class="field-error" data-error-for="email"></p>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" minlength="10" maxlength="1000" required></textarea>
+          <p class="field-error" data-error-for="message"></p>
+        </div>
+        <button type="submit" class="button">Send message</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>ATU Project Board &middot; CI/CD Pipeline Assignment (Task 3)</p>
+      <p class="small">Student project. Not an official ATU website.</p>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

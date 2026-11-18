@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Details | ATU Project Board</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="project.html">
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="index.html">ATU <span>Project Board</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" data-page="index.html">Home</a></li>
+        <li><a href="about.html" data-page="about.html">About</a></li>
+        <li><a href="project.html" data-page="project.html">Project Details</a></li>
+        <li><a href="contact.html" data-page="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="page-title">
+      <h1>Project Details</h1>
+      <p class="lead">A basic CI/CD pipeline for a web application.</p>
+    </section>
+
+    <section class="card">
+      <h2>Pipeline stages and tools</h2>
+      <p>One tool is used for each stage of the pipeline.</p>
+      <table>
+        <thead><tr><th>Stage</th><th>Tool</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td>1. Source code management</td><td>Git &amp; GitHub</td><td>Version control with branches, pull requests and releases</td></tr>
+          <tr><td>2. Automated build &amp; test</td><td>GitHub Actions</td><td>Builds and tests the website on every push</td></tr>
+          <tr><td>3. Static analysis &amp; security</td><td>Trivy</td><td>Scans files and images for vulnerabilities</td></tr>
+          <tr><td>4. Containerisation</td><td>Docker</td><td>Packages the website as a container image</td></tr>
+          <tr><td>5. Deployment</td><td>Kubernetes (Minikube)</td><td>Runs the container in a cluster</td></tr>
+          <tr><td>6. Monitoring &amp; logging</td><td>Prometheus</td><td>Collects metrics and raises alerts</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Website pages</h2>
+      <ul class="links">
+        <li><a href="index.html">Home</a> &ndash; the ATU Project Board</li>
+        <li><a href="about.html">About</a> &ndash; who built the project and why</li>
+        <li><a href="project.html">Project Details</a> &ndash; this page</li>
+        <li><a href="contact.html">Contact</a> &ndash; name, email and message form</li>
+      </ul>
+      <h2>Repository</h2>
+      <p>Source code: <a href="https://github.com/YOUR-USERNAME/atu-project-board">github.com/YOUR-USERNAME/atu-project-board</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>ATU Project Board &middot; CI/CD Pipeline Assignment (Task 3)</p>
+      <p class="small">Student project. Not an official ATU website.</p>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

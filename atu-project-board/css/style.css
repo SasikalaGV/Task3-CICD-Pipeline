@@ -1,0 +1,161 @@
+/* ATU Project Board – shared styles for every page */
+
+:root {
+  --bg: #f5f7fa;
+  --surface: #ffffff;
+  --text: #1c2430;
+  --muted: #5b6675;
+  --primary: #0b5c7a;
+  --primary-dark: #084760;
+  --accent: #e8f3f7;
+  --ok: #157f3c;
+  --bad: #b42318;
+  --border: #dde3ea;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main { flex: 1; padding-bottom: 3rem; }
+a { color: var(--primary); }
+.container { width: min(1100px, 92%); margin: 0 auto; }
+.small { font-size: 0.875rem; color: var(--muted); }
+
+/* ---------- Header & navigation ---------- */
+.site-header { background: var(--surface); border-bottom: 1px solid var(--border); }
+.nav { display: flex; align-items: center; justify-content: space-between; min-height: 64px; flex-wrap: wrap; }
+.brand { font-weight: 800; font-size: 1.2rem; color: var(--primary); text-decoration: none; }
+.brand span { color: var(--text); font-weight: 600; }
+.nav-links { list-style: none; display: flex; gap: 0.25rem; margin: 0; padding: 0; }
+.nav-links a {
+  display: block;
+  padding: 0.5rem 0.85rem;
+  border-radius: 6px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+}
+.nav-links a:hover { background: var(--accent); }
+.nav-links a.active { background: var(--primary); color: #fff; }
+.nav-toggle { display: none; }
+
+/* ---------- Headings & hero ---------- */
+.hero { text-align: center; padding: 3.5rem 0 2.5rem; }
+.hero h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0 0 0.5rem; color: var(--primary); }
+.page-title { padding: 2.5rem 0 1rem; }
+.page-title h1 { margin: 0; color: var(--primary); }
+.lead { font-size: 1.15rem; color: var(--muted); margin-top: 0.25rem; }
+
+.badges { display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap; margin: 1rem 0; }
+.badge { background: var(--accent); border-radius: 999px; padding: 0.2rem 0.9rem; font-size: 0.85rem; }
+.badge.ok { background: var(--ok); color: #fff; }
+.badge.bad { background: var(--bad); color: #fff; }
+
+.actions { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+
+/* ---------- Buttons ---------- */
+.button {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  border: 2px solid var(--primary);
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+.button:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
+.button.secondary { background: transparent; color: var(--primary); }
+.button.secondary:hover { background: var(--accent); }
+.button:disabled { opacity: 0.6; cursor: wait; }
+
+/* ---------- Cards & layout ---------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+.card h2 { margin-top: 0; font-size: 1.25rem; }
+.grid { display: grid; gap: 1.5rem; }
+.grid.two { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+.grid .card { margin-bottom: 0; }
+.grid + .card, section.grid { margin-bottom: 1.5rem; }
+
+/* ---------- Project board (home page) ---------- */
+.board { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+.column { background: #eaeef3; border-radius: var(--radius); padding: 1rem; }
+.column h3 { margin: 0 0 0.75rem; font-size: 1rem; display: flex; justify-content: space-between; }
+.count { background: var(--surface); border-radius: 999px; padding: 0 0.6rem; font-size: 0.85rem; }
+.task {
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+.task h4 { margin: 0; }
+.task p { margin: 0.25rem 0 0.5rem; color: var(--muted); font-size: 0.9rem; }
+.tag { font-size: 0.75rem; background: var(--accent); color: var(--primary); border-radius: 4px; padding: 0.1rem 0.5rem; font-weight: 600; }
+
+/* ---------- Lists & tables ---------- */
+.details { display: grid; grid-template-columns: max-content 1fr; gap: 0.4rem 1rem; margin: 0; }
+.details dt { font-weight: 600; }
+.details dd { margin: 0; }
+.checklist { padding-left: 1.2rem; }
+.pipeline li { margin-bottom: 0.6rem; }
+.links { padding-left: 1.2rem; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 0.5rem; border-bottom: 1px solid var(--border); }
+th { background: var(--accent); }
+
+/* ---------- Forms ---------- */
+.form-card { max-width: 560px; }
+.field { margin-bottom: 1rem; }
+label { display: block; font-weight: 600; margin-bottom: 0.3rem; }
+input, textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+}
+input:focus, textarea:focus { outline: 3px solid var(--accent); border-color: var(--primary); }
+input.invalid, textarea.invalid { border-color: var(--bad); }
+.field-error { color: var(--bad); font-size: 0.85rem; margin: 0.25rem 0 0; min-height: 1em; }
+.form-status { margin: 1rem 0 0; font-weight: 600; }
+.form-status.success { color: var(--ok); }
+.form-status.error { color: var(--bad); }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--text); color: #d5dbe3; padding: 1.25rem 0; text-align: center; }
+.site-footer p { margin: 0.2rem 0; }
+.site-footer .small { color: #a9b3bf; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 720px) {
+  .nav-toggle {
+    display: block;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.4rem 0.8rem;
+    font: inherit;
+  }
+  .nav-links { display: none; width: 100%; flex-direction: column; padding-bottom: 0.75rem; }
+  .nav-links.open { display: flex; }
+}
