@@ -1,0 +1,17 @@
+{
+  "name": "atu-project-board",
+  "version": "1.0.0",
+  "description": "ATU Project Board website for the CI/CD pipeline assignment",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node scripts/server.js",
+    "test": "node --test \"test/**/*.test.js\"",
+    "test:unit": "node --test \"test/unit/*.test.js\"",
+    "test:integration": "node --test \"test/integration/*.test.js\"",
+    "test:coverage": "node --test --experimental-test-coverage --test-coverage-lines=80 --test-coverage-include=js/validation.js --test-coverage-include=scripts/server.js --test-reporter=spec --test-reporter-destination=stdout --test-reporter=junit --test-reporter-destination=test-results.xml \"test/**/*.test.js\""
+  },
+  "license": "MIT"
+}
